@@ -1,0 +1,47 @@
+// import { AWSAppSyncClient } from "aws-appsync";
+import fetch from 'node-fetch'
+import AWSAppSyncClient,
+      { createAppSyncLink, createLinkWithCache } from "aws-appsync";
+import { ApolloLink } from 'apollo-link';
+
+let apolloClient = null
+
+// Polyfill fetch() on the server (used by apollo-client)
+if (!process.browser) {
+  global.fetch = fetch
+}
+
+function create(initialState, appsyncConfig) {
+
+  // const client = new AWSAppSyncClient({
+  //   ...appsyncConfig,
+  //   disableOffline: true
+  // }, {
+  //     ssrMode: true
+  //   });
+
+  const appSyncLink = new createAppSyncLink(appsyncConfig)
+  const link = ApolloLink.from([ appSyncLink ]);
+  const client = new AWSAppSyncClient({ disableOffline: true }, { link, ssrMode: true });
+
+  if (initialState) {
+    client.cache.restore(initialState);
+  }
+
+  return client;
+}
+
+export default function initApollo(initialState, appsyncConfig) {
+  // Make sure to create a new client for every server-side request so that data
+  // isn't shared between connections (which would be bad)
+  if (!process.browser) {
+    return create(initialState, appsyncConfig)
+  }
+
+  // Reuse client on the client-side
+  if (!apolloClient) {
+    apolloClient = create(initialState, appsyncConfig)
+  }
+
+  return apolloClient
+}
