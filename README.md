@@ -1,7 +1,7 @@
 # Next Apollo AppSync
 A fork of [next-apollo](https://github.com/adamsoffer/next-apollo) to work with AWS AppSync for SSR React Applications
 
-_fix issues of incorrectly fetching graphql data by using apollo-link for appsync client
+_a fix issues of incorrectly fetching graphql data by using apollo-link for appsync client
 
 ![](https://s3.amazonaws.com/aws-mobile-hub-images/nextjs.jpg)
 
@@ -17,7 +17,7 @@ Create an Apollo configuration object (check out the Apollo Client API for more 
 ```js
 // withData.js
 
-import { withAppSyncData } from 'next-apollo-appsync'
+import { withAppSyncData } from 'next-apollo-appsync-arron'
 
 const config = {
   url: "https://<YOURAPI>.us-east-2.amazonaws.com/graphql",
