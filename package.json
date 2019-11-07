@@ -1,6 +1,6 @@
 {
   "name": "next-apollo-appsync-arron",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Fork of next-apollo to enable AWS AppSync SSR Appsy",
   "main": "./dist/index.js",
   "scripts": {
