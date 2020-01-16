@@ -1,6 +1,10 @@
 {
   "name": "next-apollo-appsync-arron",
+<<<<<<< HEAD
   "version": "0.0.17",
+=======
+  "version": "0.0.18",
+>>>>>>> 15594b33e42bca3e0a560bcc81fa07a75fec1ad3
   "description": "Fork of next-apollo to enable AWS AppSync SSR Appsy",
   "main": "./dist/index.js",
   "scripts": {
@@ -20,12 +24,18 @@
     "babel-preset-react": "^6.24.1"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@apollo/react-common": "^3.1.3",
     "apollo-client": "^2.6.4",
     "apollo-link": "^1.2.13",
     "aws-appsync": "3.0.2",
     "aws-appsync-react": "^3.0.2",
     "graphql": "^14.5.8",
+=======
+    "apollo-client": "^2.6.4",
+    "apollo-link": "^1.2.13",
+    "aws-appsync": "3.0.2",
+>>>>>>> 15594b33e42bca3e0a560bcc81fa07a75fec1ad3
     "node-fetch": "^2.1.2",
     "prop-types": "^15.7.2",
     "react": "16.8.3",
