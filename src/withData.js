@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import Head from 'next/head'
 import initApollo from './initApollo'
+// import Rehydrated from './Rehydrated'
+// import { Rehydrated } from 'aws-appsync-react'
+// import { ApolloProvider } from '@apollo/react-common';
 
 // Gets the display name of a JSX component for dev tools
 function getComponentDisplayName(Component) {
@@ -32,6 +35,7 @@ export default (appSyncConfig) => {
         // Run all GraphQL queries in the component tree
         // and extract the resulting data
         const apollo = initApollo(null, appSyncConfig)
+        // console.log({ apollo })
         try {
           // create the url prop which is passed to every page
           const url = {
@@ -95,7 +99,7 @@ export default (appSyncConfig) => {
         // console.log({ apollo: this.apollo, props: this.props })
         return (
           <ApolloProvider client={this.apollo}>
-            <ComposedComponent {...this.props} />
+            <ComposedComponent {...this.props} client={this.apollo} />
           </ApolloProvider>
         )
       }
